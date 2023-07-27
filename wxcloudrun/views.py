@@ -1,15 +1,19 @@
 from datetime import datetime
 from flask import render_template, request
+from wechatpy import parse_message
+from wechatpy.replies import TextReply
+
 from run import app
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
 
-
 @app.route('/talk', methods=['POST'])
 def handle():
-    print(request.data)
-    return "success"
+    msg = parse_message(request.data)
+    reply = TextReply(content='hello Tony', message=msg)
+    xml = reply.render()
+    return xml
 
 @app.route('/')
 def index():
