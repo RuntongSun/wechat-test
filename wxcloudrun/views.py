@@ -8,9 +8,7 @@ from wxcloudrun.response import make_succ_empty_response, make_succ_response, ma
 
 @app.route('/talk', methods=['POST'])
 def handle():
-    """
-    :return: 返回index页面
-    """
+    print(request.data)
     return "success"
 
 @app.route('/')
