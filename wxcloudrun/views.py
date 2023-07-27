@@ -6,6 +6,13 @@ from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
 
 
+@app.route('/talk')
+def handle():
+    """
+    :return: 返回index页面
+    """
+    return "success"
+
 @app.route('/')
 def index():
     """
